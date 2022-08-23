@@ -15,8 +15,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        height: double.maxFinite,
+        width: double.maxFinite,
         color: Theme.of(context).primaryColor,
-        child: Text('TEST'),
+        child: Center(child: Text('TEST')),
       ),
     );
   }
