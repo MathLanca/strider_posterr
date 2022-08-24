@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:strider_posterr/core/UI/ui_constants.dart';
 import 'package:strider_posterr/core/text/text_constants.dart';
 
@@ -10,8 +11,12 @@ class BaseScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).primaryColorLight,
         centerTitle: true,
-        title: Text(APP_NAME.toUpperCase(),),
+        title: Text(
+          APP_NAME.toUpperCase(),
+          style: GoogleFonts.lobsterTwo(fontSize: 32),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
@@ -21,23 +26,18 @@ class BaseScaffold extends StatelessWidget {
       ),
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
-        notchMargin: 4.0,
-        child: new Row(
+        color: Theme.of(context).primaryColorLight,
+        notchMargin: 15,
+        child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             IconButton(
-              icon: Icon(
-                Icons.home,
-                size: kIconSize,
-              ),
+              icon: Icon(Icons.home, color: Colors.white, size: kIconSize),
               onPressed: () {},
             ),
             IconButton(
-              icon: Icon(
-                Icons.search,
-                size: kIconSize,
-              ),
+              icon: Icon(Icons.person, color: Colors.white, size: kIconSize),
               onPressed: () {},
             ),
           ],
