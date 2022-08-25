@@ -1,9 +1,9 @@
 class PostDto {
-  final String? message;
-  final String? username;
+  final String message;
+  final String username;
 
-  PostDto({this.message, this.username});
+  PostDto({required this.message, required this.username});
 
   factory PostDto.fromJson(Map<String, dynamic> json) =>
-      PostDto(message: json['message'], username: json['username']);
+      PostDto(message: json['message'], username: json['user_name']);
 }

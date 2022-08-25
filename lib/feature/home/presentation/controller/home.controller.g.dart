@@ -41,11 +41,28 @@ mixin _$HomeController on HomeControllerBase, Store {
     });
   }
 
+  late final _$isInProgressAtom =
+      Atom(name: 'HomeControllerBase.isInProgress', context: context);
+
+  @override
+  bool get isInProgress {
+    _$isInProgressAtom.reportRead();
+    return super.isInProgress;
+  }
+
+  @override
+  set isInProgress(bool value) {
+    _$isInProgressAtom.reportWrite(value, super.isInProgress, () {
+      super.isInProgress = value;
+    });
+  }
+
   @override
   String toString() {
     return '''
 posts: ${posts},
-hasError: ${hasError}
+hasError: ${hasError},
+isInProgress: ${isInProgress}
     ''';
   }
 }

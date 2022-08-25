@@ -8,18 +8,18 @@ class HomeController = HomeControllerBase with _$HomeController;
 abstract class HomeControllerBase with Store {
   final HomeUseCase _homeUseCase;
 
-  HomeControllerBase(this._homeUseCase){
+  HomeControllerBase(this._homeUseCase) {
     fetchPosts();
   }
 
   @observable
-  late List<Post> posts;
+  late List<Post> posts = [];
 
   @observable
-  late bool hasError;
+  late bool hasError = false;
 
   @observable
-  late bool isInProgress;
+  late bool isInProgress = false;
 
   setHasError(bool value) => hasError = value;
 
@@ -30,11 +30,11 @@ abstract class HomeControllerBase with Store {
   Future<void> fetchPosts() async {
     setIsInProgress(true);
 
-    var result = await _homeUseCase.fetchPosts().then((value) => setIsInProgress(false));
-    
-     return result.fold(
+    var result = await _homeUseCase.fetchPosts();
+    result.fold(
       (l) => setHasError(true),
       (r) => setPosts(r),
     );
+    setIsInProgress(false);
   }
 }
