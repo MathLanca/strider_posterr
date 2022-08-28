@@ -9,7 +9,7 @@ class HomeDataSourceImp implements HomeDataSource {
   @override
   Future<Either<Exception, List<PostDto>>> fetchPosts() async {
     try {
-      Future.delayed(Duration(seconds: 5));
+      await Future.delayed(Duration(seconds: 5));
       List<PostDto> result = [];
 
       final String response = await rootBundle.loadString('asset/json/post.json');

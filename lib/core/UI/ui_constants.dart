@@ -1,2 +1,3 @@
 const double kIconSize = 32;
-const double kHorizontalMargin = 24;
+const double kDefaultMargin = 12;
+const double kDefaultPostMargin = 8;

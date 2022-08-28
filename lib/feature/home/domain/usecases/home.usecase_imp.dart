@@ -13,7 +13,11 @@ class HomeUseCaseImp implements HomeUseCase {
     var posts = await _homeRepository.fetchPosts();
     return posts.fold(
       (l) => Left(Exception('Usecase error on fetch posts')),
-      (r) => Right(r),
+      (r) {
+        List<Post> result = r;
+        result.sort((firstPost, secondPost) => secondPost.createdAt.compareTo(firstPost.createdAt));
+        return Right(result);
+      }
     );
   }
 }

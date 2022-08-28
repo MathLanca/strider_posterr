@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        fontFamily: 'Verdana',
         visualDensity: VisualDensity.adaptivePlatformDensity,
         primaryColor: Color(0XFF4630ab),
         primaryColorDark: Color(0xFF2c044c),

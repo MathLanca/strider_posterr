@@ -17,6 +17,7 @@ dependencies:
   flutter_native_splash: 1.3.2
   get_it: ^7.2.0
   google_fonts: 2.0.0
+  intl: ^0.17.0
   mobx: 2.0.7
 
 flutter_native_splash:
@@ -34,7 +35,6 @@ flutter:
   uses-material-design: true
   assets:
     - asset/json/post.json
-  
   #   - images/a_dot_ham.jpeg
   # fonts:
   #   - family: Schyler

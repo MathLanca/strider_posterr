@@ -21,11 +21,19 @@ abstract class HomeControllerBase with Store {
   @observable
   late bool isInProgress = false;
 
+  @observable
+  late bool isPostLiked = false;
+
   setHasError(bool value) => hasError = value;
 
   setPosts(List<Post> values) => posts = values;
 
   setIsInProgress(bool value) => isInProgress = value;
+
+  setIsPostLiked(bool value) => isPostLiked = value;
+
+  @action
+  void likePost() => setIsPostLiked(!isPostLiked);
 
   Future<void> fetchPosts() async {
     setIsInProgress(true);

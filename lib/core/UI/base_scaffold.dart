@@ -5,19 +5,14 @@ import 'package:strider_posterr/core/text/text_constants.dart';
 
 class BaseScaffold extends StatelessWidget {
   final Widget child;
-  const BaseScaffold({required this.child, Key? key}) : super(key: key);
+  final bool shouldUseAppBar;
+  const BaseScaffold({required this.child, this.shouldUseAppBar = false, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColorLight,
-        centerTitle: true,
-        title: Text(
-          APP_NAME.toUpperCase(),
-          style: GoogleFonts.lobsterTwo(fontSize: 32),
-        ),
-      ),
+      appBar: shouldUseAppBar ? buildAppBar(context) : null,
+      body: child,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
@@ -43,7 +38,17 @@ class BaseScaffold extends StatelessWidget {
           ],
         ),
       ),
-      body: child,
+    );
+  }
+
+  static AppBar buildAppBar(BuildContext context) {
+    return AppBar(
+      backgroundColor: Theme.of(context).primaryColorLight,
+      centerTitle: true,
+      title: Text(
+        APP_NAME.toUpperCase(),
+        style: GoogleFonts.lobsterTwo(fontSize: 32),
+      ),
     );
   }
 }
